@@ -27,7 +27,6 @@ export async function getCreditorInfo(
   let numberOfUnsecuredCreditors = 0;
   let qualifies = false;
 
-  console.log('hi')
   const response = await apiRequest("/creditors", "get", body);
 
   const creditors: [] = response.data;
