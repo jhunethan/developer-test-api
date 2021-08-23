@@ -1,7 +1,7 @@
-import {apiRequest, getCreditor} from "../app/creditMethod";
+import express from "express"
+import { getCreditorInfo } from "../app/creditMethod";
 
-const creditRouter = require("express").Router();
-
+const creditRouter = express.Router();
 
 creditRouter.get("/", (req, res) => {
   const output = {};
@@ -9,8 +9,8 @@ creditRouter.get("/", (req, res) => {
 });
 
 creditRouter.post("/", async (req, res) => {
-  const creditor = await getCreditor(req.body)
-  res.status(200).send(creditor)
+  const creditor = await getCreditorInfo(req.body);
+  res.status(200).send(creditor);
 });
 
-module.exports = creditRouter;
+export default creditRouter;
